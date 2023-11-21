@@ -1,0 +1,78 @@
+// QUERY OPERATION to Get All the Authors
+query GetAuthors {
+  getAuthors {
+    id,
+    info {
+      name,
+      age,
+      gender
+    }
+  }
+}
+
+
+// QUERY OPERATION to Get a Specific Author
+query RetrieveAuthor($retrieveAuthorId: ID!) {
+  retrieveAuthor(id: $retrieveAuthorId) {
+    id,
+    info {
+      name,
+      age,
+      gender
+    }
+  }
+}
+Variables Passed = 
+{
+  "retrieveAuthorId": "1"
+}
+
+
+// MUTATION OPERATION to Create an Author Record
+mutation CreateAuthor($name: String!, $gender: String!) {
+  createAuthor(name: $name, gender: $gender) {
+    id,
+    info {
+      name,
+      gender
+    }
+  }
+}
+Variables Passed = 
+{
+  "name": "Karan Bhogle",
+  "gender": "M"
+}
+
+
+// MUTATION OPERATION to Update the Author Record
+mutation UpdateAuthor($updateAuthorId: ID!, $name: String, $age: Int, $gender: String) {
+  updateAuthor(id: $updateAuthorId, name: $name, age: $age, gender: $gender) {
+    id,
+    info {
+      name,
+      age,
+      gender
+    }
+  }
+}
+Variables Passed = 
+{
+  "updateAuthorId": "2",
+  "name": "Karan Bhogle",
+  "age": 26,
+  "gender": "M"
+}
+
+
+// MUTATION OPERATION to Delete the Author Record
+mutation DeleteAuthor($deleteAuthorId: ID!) {
+  deleteAuthor(id: $deleteAuthorId) {
+    id,
+    message
+  }
+}
+Variables Passed = 
+{
+  "deleteAuthorId": "3"
+}
